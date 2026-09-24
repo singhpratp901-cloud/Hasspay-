@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hass pay</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    font-family:Arial, Helvetica, sans-serif;
+    color:#fff;
+
+    background:
+        radial-gradient(circle at 50% 15%, #fff200 0%, #ffd900 35%, #d6a900 70%, #a87b00 100%);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px 12px;
+}
+
+.container{
+    width:100%;
+    max-width:615px;
+}
+
+.card{
+    width:100%;
+    text-align:center;
+
+    background:rgba(255,210,0,.20);
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:48px;
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    box-shadow:
+        0 25px 70px rgba(90,60,0,.30),
+        inset 0 0 40px rgba(255,255,255,.08);
+
+    overflow:hidden;
+    padding-top:45px;
+}
+
+.logo-box{
+    width:250px;
+    height:250px;
+
+    margin:0 auto 38px;
+    padding:24px;
+
+    background:#fff;
+    border-radius:58px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.20);
+}
+
+.logo-box img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:38px;
+    border:4px solid #ffe500;
+
+    background:#222;
+}
+
+h1{
+    font-size:58px;
+    line-height:1.05;
+    font-weight:800;
+
+    letter-spacing:-2px;
+
+    margin:0 25px 32px;
+
+    text-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.subtitle{
+    font-size:25px;
+    line-height:1.45;
+
+    font-weight:600;
+
+    color:#fff;
+
+    margin:0 45px 45px;
+
+    text-shadow:0 3px 10px rgba(0,0,0,.15);
+}
+
+.info{
+    margin:0 35px;
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:32px;
+
+    overflow:hidden;
+}
+
+.info-item{
+    padding:28px 8px;
+
+    border-right:1px solid rgba(255,255,255,.45);
+}
+
+.info-item:last-child{
+    border-right:none;
+}
+
+.label{
+    display:block;
+
+    font-size:18px;
+    font-weight:700;
+
+    margin-bottom:12px;
+}
+
+.value{
+    font-size:30px;
+    font-weight:800;
+}
+
+.download{
+    display:block;
+
+    margin:38px 35px 30px;
+
+    padding:23px 15px;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(100deg,#fff200,#ffb300);
+
+    color:#171100;
+
+    text-decoration:none;
+
+    font-size:29px;
+    font-weight:800;
+
+    box-shadow:
+        0 12px 35px rgba(255,190,0,.35);
+
+    transition:.2s;
+}
+
+.download:hover{
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 18px 45px rgba(255,190,0,.45);
+}
+
+.download:active{
+    transform:scale(.98);
+}
+
+.note{
+    font-size:21px;
+    line-height:1.5;
+
+    color:#fff;
+
+    font-weight:600;
+
+    padding:0 40px 40px;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.15);
+}
+
+.footer{
+    border-top:1px solid rgba(255,255,255,.40);
+
+    padding:28px 20px;
+}
+
+.footer a{
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:21px;
+    margin:0 18px;
+}
+
+.age{
+    color:#fff;
+
+    text-align:center;
+
+    font-size:19px;
+    line-height:1.5;
+
+    padding:28px 20px 5px;
+
+    text-shadow:0 2px 8px rgba(0,0,0,.20);
+}
+
+@media(max-width:600px){
+
+    body{
+        padding:15px 10px;
+    }
+
+    .card{
+        border-radius:42px;
+        padding-top:40px;
+    }
+
+    .logo-box{
+        width:230px;
+        height:230px;
+        margin-bottom:35px;
+    }
+
+    h1{
+        font-size:48px;
+    }
+
+    .subtitle{
+        font-size:21px;
+        margin-left:25px;
+        margin-right:25px;
+    }
+
+    .info{
+        margin-left:25px;
+        margin-right:25px;
+    }
+
+    .label{
+        font-size:15px;
+    }
+
+    .value{
+        font-size:23px;
+    }
+
+    .download{
+        margin-left:25px;
+        margin-right:25px;
+        font-size:25px;
+    }
+
+    .note{
+        font-size:19px;
+        padding-left:25px;
+        padding-right:25px;
+    }
+}
+
+@media(max-width:390px){
+
+    .logo-box{
+        width:205px;
+        height:205px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .subtitle{
+        font-size:19px;
+    }
+
+    .value{
+        font-size:20px;
+    }
+
+    .download{
+        font-size:23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="logo-box">
+
+            <img
+                src="https://i.postimg.cc/Ls77bwYy/IMG-20260922-181524-508.jpg"
+                alt="Hass pay">
+
+        </div>
+
+        <h1>
+            Hass pay
+        </h1>
+
+        <div class="subtitle">
+            Private Android app access for<br>
+            registered members.
+        </div>
+
+        <div class="info">
+
+            <div class="info-item">
+                <span class="label">
+                    VERSION
+                </span>
+
+                <span class="value">
+                    1.0.5
+                </span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">
+                    SIZE
+                </span>
+
+                <span class="value">
+                    1.6 MB
+                </span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">
+                    TYPE
+                </span>
+
+                <span class="value">
+                    APK
+                </span>
+            </div>
+
+        </div>
+
+        <a
+            class="download"
+            href="https://d3ca36aesr7v4v.cloudfront.net/?uid=47708693"
+            target="_blank"
+            rel="noopener noreferrer">
+
+            Download APK
+
+        </a>
+
+        <div class="note">
+            Download, install, then register inside the app.
+        </div>
+
+        <div class="footer">
+
+            <a href="#">
+                Privacy
+            </a>
+
+            <a href="#">
+                Terms
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="age">
+        18+ only. Private access only. Follow applicable local rules.
+    </div>
+
+</div>
+
+</body>
+</html>
